@@ -1,10 +1,10 @@
 // C program to print all primes smaller than or equal to n
 // using Sieve of Eratosthenes
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 #include <string.h> //for memset
 
-void SieveOfEratosthenes(int n)
+void sieveOfEratosthenes(int n)
 {
     bool prime[n + 1];
     memset(prime, true, sizeof(prime));
@@ -30,6 +30,6 @@ int main()
 {
     int n = 1000;
     printf("Prime numbers <= %d are:\n", n);
-    SieveOfEratosthenes(n);
+    sieveOfEratosthenes(n);
     return 0;
 }
