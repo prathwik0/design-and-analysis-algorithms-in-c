@@ -32,5 +32,6 @@ int main()
     else
         printf("Element found at position %d\n", pos);
 
+    free(array);
     return 0;
 }
