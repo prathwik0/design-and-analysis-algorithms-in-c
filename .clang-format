@@ -1,13 +1,25 @@
-{ 
-    BasedOnStyle: LLVM, 
-    UseTab: Never, 
-    IndentWidth: 4, 
-    TabWidth: 4, 
-    BreakBeforeBraces: Allman, 
-    AllowShortIfStatementsOnASingleLine: false, 
-    IndentCaseLabels: false, 
-    ColumnLimit: 0, 
-    AccessModifierOffset: -4, 
-    NamespaceIndentation: All, 
-    FixNamespaceComments: false,
-}
+BasedOnStyle: LLVM
+UseTab: Never
+IndentWidth: 4
+TabWidth: 4
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: false
+IndentCaseLabels: false
+ColumnLimit: 0
+AccessModifierOffset: -4
+NamespaceIndentation: All
+FixNamespaceComments: false
+# style - LLVM, Google, Chromium, Mozilla, Webkit
+
+## This is the default VS Code formatting
+# BasedOnStyle: LLVM
+# UseTab: Never
+# IndentWidth: 4
+# TabWidth: 4
+# BreakBeforeBraces: Allman
+# AllowShortIfStatementsOnASingleLine: false
+# IndentCaseLabels: false
+# ColumnLimit: 0
+# AccessModifierOffset: -4
+# NamespaceIndentation: All
+# FixNamespaceComments: false
