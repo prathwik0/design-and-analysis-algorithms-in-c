@@ -1,3 +1,4 @@
+/* Simple C program to multiply 2 compatible matrices of maximum size 10x10 */
 #include <stdio.h>
 
 void input(int a[][10], int m, int n)
