@@ -10,6 +10,7 @@ void input(int a[][10], int m, int n)
             scanf("%d", &a[i][j]);
         }
     }
+    printf("\n");
 }
 
 void multiply(int a[][10], int b[][10], int c[][10], int m1, int n1, int m2, int n2)
