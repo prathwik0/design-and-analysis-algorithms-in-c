@@ -1,0 +1,14 @@
+{
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.temporaryFileName": "",
+    "workbench.iconTheme": "material-icon-theme",
+    "[markdown]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.defaultFormatter": "darkriszty.markdown-table-prettify"
+    },
+}
