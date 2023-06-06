@@ -7,4 +7,4 @@
 !.gitignore
 !README.md
 !.clang-format
-!settings.json
+!vscode/*
