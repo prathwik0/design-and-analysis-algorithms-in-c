@@ -1,11 +1,11 @@
 euclidsAlgorithm:
-	gcc euclidsAlgorithm.c test.c -o main
+	gcc euclidsAlgorithm.c test.c -o euclidsAlgorithm
 
 middleSchool:
-	gcc middleSchool.c test.c -o main
+	gcc middleSchool.c test.c -o middleSchool
 
 consecutiveInteger:
-	gcc consecutiveInteger.c test.c -o main
+	gcc consecutiveInteger.c test.c -o consecutiveInteger
 
-lab:
-	gcc labManual.c -o main
+combined:
+	gcc combined.c -o combined
