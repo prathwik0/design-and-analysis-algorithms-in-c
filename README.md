@@ -4,10 +4,10 @@
 
 | No. |       Title       | Algorithms                                               |    Time Complexity    | Space Complexity |
 |:---:|:-----------------:|:---------------------------------------------------------|:---------------------:|:----------------:|
-|  1  |        GCD        | [Euclid's algorithm](GCD/labManual.c)                    | O($`log(\min(a,b))`$) |      O($1$)      |
-|     |                   | [Consecutive Integer](GCD/labManual.c)                   |   O($`\min(a,b)`$)    |      O($1$)      |
-|     |                   | [Middle School Method](GCD/labManual.c)                  |        O($n$)         | O($maxFactors$)  |
-|  2  |   Prime Numbers   | [Sieve of Eratosthenes](GCD/labManual.c)                 |   O($n\log\log n$)    |      O($n$)      |
+|  1  |        GCD        | [Euclid's algorithm](GCD/euclidsAlgorithm.c)             | O($`log(\min(a,b))`$) |      O($1$)      |
+|     |                   | [Consecutive Integer](GCD/consecutiveInteger.c)          |   O($`\min(a,b)`$)    |      O($1$)      |
+|     |                   | [Middle School Method](GCD/combined.c)                   |        O($n$)         | O($maxFactors$)  |
+|  2  |   Prime Numbers   | [Sieve of Eratosthenes](GCD/sieve.c)                     |   O($n\log\log n$)    |      O($n$)      |
 |  3  |     Factorial     | [Iterative Version](Fibonacci/iteration.c)               |                       |                  |
 |     |                   | [Recursive Version](Fibonacci/recursion.c)               |                       |                  |
 |  4  |     Fibonacci     | [Iterative Version](Factorial/iteration.c)               |                       |                  |
