@@ -1,8 +1,6 @@
-// C program to find GCD using middle school method
-#include <stdio.h>
+#include "test.h"
 #include <stdlib.h>
 
-// A function to return all prime factors of a given number n
 int *primeFactors(int n)
 {
     int *primes = (int *)calloc(100, sizeof(int));
@@ -38,7 +36,6 @@ int *primeFactors(int n)
     return primes;
 }
 
-// Function to return gcd of a and b
 int gcd(int a, int b)
 {
     int *arr1 = primeFactors(a);
@@ -66,7 +63,7 @@ int gcd(int a, int b)
 
     int gcd = 1;
     i = 0;
-    while (p = coprimes[i])
+    while ((p = coprimes[i]))
     {
         i++;
         gcd *= p;
@@ -75,22 +72,8 @@ int gcd(int a, int b)
     return gcd;
 }
 
-// Driver program to test above function
 int main()
 {
-    int a = 10, b = 15;
-    printf("GCD(%d, %d) = %d\n", a, b, gcd(a, b));
-
-    a = 35, b = 14;
-    printf("GCD(%d, %d) = %d\n", a, b, gcd(a, b));
-
-    // gcd(9888,6060) = 12
-    a = 9888, b = 6060;
-    printf("GCD(%d, %d) = %d\n", a, b, gcd(a, b));
-
-    // GCD(1160718174, 316258250) = 1078
-    a = 1160718174, b = 316258250;
-    printf("GCD(%d, %d) = %d\n", a, b, gcd(a, b));
-
+    test();
     return 0;
 }
