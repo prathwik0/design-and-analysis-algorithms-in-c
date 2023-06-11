@@ -6,5 +6,5 @@
 !*Makefile
 !.gitignore
 !README.md
-!.clang-format
+!.clang-format*
 !vscode/*
