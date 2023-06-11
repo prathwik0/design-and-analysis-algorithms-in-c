@@ -1,8 +1,21 @@
-linearSearch:
-	gcc linearSearch.c test.c -o linearSearch
+CC=gcc
 
-binarySearch:
-	gcc binarySearch.c test.c -o binarySearch
+# -O0 no optimizations, -O3 all compiler optimizations
+CFLAGS= -g -O2
 
-binarySearchRecursive:
-	gcc binarySearchRecursive.c test.c -o binarySearchRecursive
+all: linearSearch binarySearch binarySearchRecursive
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $^
+
+linearSearch: test.o linearSearch.c
+	$(CC) $(CFLAGS) $^ -o $@
+
+binarySearch: test.o binarySearch.c
+	$(CC) $(CFLAGS) $^ -o $@
+
+binarySearchRecursive: test.o binarySearchRecursive.c
+	$(CC) $(CFLAGS) $^ -o $@
+
+clean:
+	rm *.o linearSearch binarySearch binarySearchRecursive
