@@ -21,12 +21,6 @@ void multiply(int a[][10], int b[][10], int c[][10], int m1, int n1, int m2, int
         for (int j = 0; j < n2; ++j)
         {
             c[i][j] = 0;
-        }
-    }
-    for (int i = 0; i < m1; ++i)
-    {
-        for (int j = 0; j < n2; ++j)
-        {
             for (int k = 0; k < n1; ++k)
             {
                 c[i][j] += a[i][k] * b[k][j];
@@ -37,7 +31,6 @@ void multiply(int a[][10], int b[][10], int c[][10], int m1, int n1, int m2, int
 
 void display(int a[][10], int m, int n)
 {
-
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
