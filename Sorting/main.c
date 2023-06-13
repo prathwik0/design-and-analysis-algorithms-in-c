@@ -21,7 +21,8 @@ int main()
     int numFunctions = sizeof(sortingFunctions) / sizeof(sortingFunctions[0]);
 
     // Test the sorting functions
-    test(sortingFunctions, sortingFunctionNames, numFunctions, 10000, 0, 1000000, 400);
+    // test(sortingFunctions, sortingFunctionNames, numFunctions, nIter, min, max, count)
+    test(sortingFunctions, sortingFunctionNames, numFunctions, 10, 0, 10000, 1000);
 
     return 0;
 }
