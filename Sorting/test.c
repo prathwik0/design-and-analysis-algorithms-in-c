@@ -1,67 +1,60 @@
-#include "test.h"
 #include <stdio.h>
 #include <stdlib.h> /*for memory allocation*/
 #include <time.h>   /*for random number generation & clock*/
 
-// make sure to free the array receieved by this function if used
-int *generateUniqueRandIntegers(int min, int max, int count)
+static void swap(int *a, int *b)
 {
-    if (count > (max - min + 1))
-    {
-        printf("Error: Cannot generate more unique random numbers than the range allows.\n");
-        return NULL;
-    }
-
-    if (min > max)
-    {
-        printf("Error: Invalid range.\n");
-        return NULL;
-    }
-
-    int rangeSize = max - min + 1;
-    int *numbers = malloc(rangeSize * sizeof(int));
-    if (numbers == NULL)
-    {
-        printf("Error: Memory allocation failed.\n");
-        return NULL;
-    }
-
-    // Initialize the array
-    for (int i = 0; i < rangeSize; i++)
-    {
-        numbers[i] = min + i;
-    }
-
-    // Shuffle the array using Fisher-Yates algorithm
-    srand(time(NULL));
-    for (int i = rangeSize - 1; i > 0; i--)
-    {
-        int j = rand() % (i + 1);
-        int temp = numbers[i];
-        numbers[i] = numbers[j];
-        numbers[j] = temp;
-    }
-
-    // Create a new array to store the selected unique random numbers
-    int *selectedNumbers = malloc(count * sizeof(int));
-    if (selectedNumbers == NULL)
-    {
-        printf("Error: Memory allocation failed.\n");
-        free(numbers);
-        return NULL;
-    }
-
-    // Copy the first 'count' elements from the shuffled array to the selectedNumbers array
-    for (int i = 0; i < count; i++)
-    {
-        selectedNumbers[i] = numbers[i];
-    }
-
-    free(numbers);
-    return selectedNumbers;
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
-int isSorted(int arr[], int size)
+static int *allocateArray(int size)
+{
+    int *newArray = malloc(size * sizeof(int)); /*Allocate memory for destination array*/
+
+    if (newArray == NULL)
+    {
+        printf("Error: Memory allocation failed.\n");
+        return NULL; /* Return NULL if memory allocation fails */
+    }
+
+    return newArray;
+}
+
+static void generateUniqueRandIntegers(int *array, int min, int max, int count)
+{
+    int N = max - min - 1;
+
+    int *largerArray = allocateArray(N);
+    if (largerArray == NULL)
+    {
+        return;
+    }
+
+    for (int i = 0; i < N - 1; i++)
+    {
+        largerArray[i] = i + 1;
+    }
+
+    // randomize the array
+    srand(time(0));
+    for (int i = N - 1; i > 0; i--)
+    {
+        int j = rand() % (i + 1);
+        swap(&largerArray[i], &largerArray[j]);
+    }
+
+    for (int i = 0; i < count; i++)
+    {
+        array[i] = largerArray[i] + min;
+        // printf("%d\n", array[i]);
+    }
+
+    free(largerArray);
+}
+
+static int isSorted(int arr[], int size)
 {
     for (int i = 1; i < size; i++)
     {
@@ -73,20 +66,7 @@ int isSorted(int arr[], int size)
     return 1;
 }
 
-int *allocateArray(int size)
-{
-    int *newArray = malloc(2 * size * sizeof(int)); /*Allocate memory for destination array*/
-
-    if (newArray == NULL)
-    {
-        printf("Error: Memory allocation failed.\n");
-        return NULL; /* Return NULL if memory allocation fails */
-    }
-
-    return newArray;
-}
-
-void copyArray(const int *sourceArray, int *destinationArray, int size)
+static void copyArray(const int *sourceArray, int *destinationArray, int size)
 {
     // Copy the element of first array into the second array
     for (int i = 0; i < size; i++)
@@ -99,30 +79,33 @@ void test(void (*sort[])(int *, int), const char *sortFuncNames[], int numFunc, 
 {
     // average time taken to sort
     double avg[numFunc];
+    for (int i = 0; i < numFunc; i++)
+        avg[i] = 0;
+
+    int *testingArray = allocateArray(count);
+    int *testingArrayCopy = allocateArray(count);
+    if (testingArray == NULL || testingArrayCopy == NULL)
+    {
+        printf("Error: Couldn't create testing arrays, aborting.\n");
+        return;
+    }
 
     for (int i = 0; i < nIter; i++)
     {
-        int *testArray = generateUniqueRandIntegers(min, max, count);
-        int *testArrayCopy = allocateArray(count);
-        if (testArrayCopy == NULL)
-        {
-            printf("Aborting the program\n");
-            free(testArray);
-            return;
-        }
-        copyArray(testArray, testArrayCopy, count);
+        generateUniqueRandIntegers(testingArray, min, max, count);
+        copyArray(testingArray, testingArrayCopy, count);
 
         for (int j = 0; j < numFunc; j++)
         {
             clock_t start_time = clock();
-            sort[j](testArrayCopy, count);
+            sort[j](testingArrayCopy, count);
             clock_t end_time = clock();
 
             double sorting_time = (double)(end_time - start_time) / CLOCKS_PER_SEC;
             avg[j] += sorting_time / nIter;
 
             // Verify the sorted array & print the results
-            if (isSorted(testArrayCopy, count))
+            if (isSorted(testingArrayCopy, count))
             {
                 printf("Sorting Time of %s : %lf\n", sortFuncNames[j], sorting_time);
             }
@@ -131,12 +114,17 @@ void test(void (*sort[])(int *, int), const char *sortFuncNames[], int numFunc, 
                 printf("ERROR: Array was not sorted correctly.");
             }
 
-            // Recopy the testArray to testArrayCopy
-            copyArray(testArray, testArrayCopy, count);
+            // Recopy the testingArray to the now sorted testingArrayCopy
+            copyArray(testingArray, testingArrayCopy, count);
         }
-
-        // Free the dynamically allocated memory
-        free(testArray);
-        free(testArrayCopy);
     }
+
+    for (int i = 0; i < numFunc; i++)
+    {
+        printf("The average sorting time of %s : %f\n", sortFuncNames[i], avg[i]);
+    }
+
+    // Free the dynamically allocated memory
+    free(testingArray);
+    free(testingArrayCopy);
 }
