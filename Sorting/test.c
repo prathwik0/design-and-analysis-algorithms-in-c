@@ -111,7 +111,7 @@ void test(void (*sort[])(int *, int), const char *sortFuncNames[], int numFunc, 
             }
             else
             {
-                printf("ERROR: Array was not sorted correctly.");
+                printf("ERROR: Array was not sorted correctly.\n");
             }
 
             // Recopy the testingArray to the now sorted testingArrayCopy
