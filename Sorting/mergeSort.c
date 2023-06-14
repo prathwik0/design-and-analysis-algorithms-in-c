@@ -1,57 +1,49 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-static void merge(int *A, int sizeA, int *B, int sizeB, int *arr)
+static void merge(int *left, int sizeLeft, int *right, int sizeRight, int *arr)
 {
     int i = 0, j = 0, k = 0;
-    while (i < sizeA && j < sizeB)
+    while (i < sizeLeft && j < sizeRight)
     {
-        if (A[i] < B[j])
+        if (left[i] < right[j])
         {
-            arr[k] = A[i];
+            arr[k] = left[i];
             i++;
         }
         else
         {
-            arr[k] = B[j];
+            arr[k] = right[j];
             j++;
         }
         k++;
     }
+
     /*Copy any remaining elements in the arrays*/
-    for (; i < sizeA; i++)
-    {
-        arr[k++] = A[i];
-    }
-    for (; j < sizeB; j++)
-    {
-        arr[k++] = B[j];
-    }
+    for (; i < sizeLeft; i++)
+        arr[k++] = left[i];
+
+    /*The below for loop is not required for mergeSortMain*/
+    // for (; j < sizeRight; j++)
+    //     arr[k++] = right[j];
+}
+
+static void mergeSortMain(int *arr, int l, int h)
+{
+    if (l >= h)
+        return;
+
+    int mid = (l + h) / 2;
+
+    mergeSortMain(arr, l, mid);
+    mergeSortMain(arr, mid + 1, h);
+
+    int tempSize = mid - l + 1;
+    int temp[tempSize];
+    for (int i = 0; i < tempSize; i++)
+        temp[i] = arr[l + i];
+
+    merge(temp, tempSize, arr + mid + 1, h - mid, arr + l);
 }
 
 void mergeSort(int *arr, int n)
 {
-    if (n <= 1)
-        return;
-
-    int *A = (int *)malloc(sizeof(int) * (n / 2));
-    int *B = (int *)malloc(sizeof(int) * ((n + 1) / 2));
-    if (A == NULL || B == NULL)
-    {
-        printf("Error: couldn't allocate memory using malloc.");
-        exit(0);
-    }
-
-    int i = 0;
-    for (; i < (n / 2); i++)
-    {
-        A[i] = arr[i];
-    }
-    for (int j = 0; i < n; i++, j++)
-    {
-        B[j] = arr[i];
-    }
-    mergeSort(A, n / 2);
-    mergeSort(B, (n + 1) / 2);
-    merge(A, n / 2, B, (n + 1) / 2, arr);
+    mergeSortMain(arr, 0, n - 1);
 }
