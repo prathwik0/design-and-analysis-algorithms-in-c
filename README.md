@@ -21,3 +21,5 @@
 |     |                      | [Insertion Sort](Sorting/insertionSort.c)                |        $\Omega(n)\ \Theta(n^2)\ O(n^2)$        |      $O(1)$      |
 |     |                      | [Merge Sort](Sorting/mergeSort.c)                        | $\Omega(n\log n)\ \Theta(n\log n)\ O(n\log n)$ |      $O(n)$      |
 |     |                      | [Quick Sort](Sorting/quickSort.c)                        |   $\Omega(n\log n)\ \Theta(n\log n)\ O(n^2)$   |      $O(1)$      |
+|  9  |   Graph Algorithms   | [Depth First Search](GraphAlgorithms/dfs.c)              |                                                |                  |
+|     |                      | [Breadth First Search](GraphAlgorithms/bfs.c)            |                                                |                  |
