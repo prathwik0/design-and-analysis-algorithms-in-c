@@ -2,8 +2,8 @@
 
 | No. |        Title         | Algorithms                                               |                Time Complexity                 | Space Complexity |
 |:---:|:--------------------:|:---------------------------------------------------------|:----------------------------------------------:|:----------------:|
-||[Euclid's algorithm](GCD/euclidsAlgorithm.c)||adf $`asdf`$asdf|asdf $`asdf`$ asdf|
-||[Consecutive Integer](GCD/consecutiveInteger.c)||||
+||[Euclid's algorithm](GCD/euclidsAlgorithm.c)||[Euclid's algorithm](GCD/euclidsAlgorithm.c) adf $`asdf`$asdf|asdf $`asdf`$ asdf [Euclid's algorithm](GCD/euclidsAlgorithm.c)|
+||[Consecutive Integer](GCD/consecutiveInteger.c)||[Euclid's algorithm](GCD/euclidsAlgorithm.c)||
 
 ## List of programs
 
