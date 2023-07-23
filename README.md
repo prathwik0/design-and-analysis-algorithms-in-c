@@ -23,7 +23,7 @@
 |     |                      | [Quick Sort](Sorting/quickSort.c)                        |   $\Omega(n\log n)\ \Theta(n\log n)\ O(n^2)$   |      $O(1)$      |
 |  9  |   Graph Algorithms   | [Depth First Search](GraphAlgorithms/dfs.c)              |                                                |                  |
 |     |                      | [Breadth First Search](GraphAlgorithms/bfs.c)            |                                                |                  |
-| 10  |   String Matching    | [Brute Force](main/design-and-analysis-of-algorithms-in-c/blob/StringMatching/bruteForce.c)     |                                                |                  |
-|     |                      | [Horspool Algorithm](StringMatching/horsepool.c)         |                                                |                  |
+| 10  |   String Matching    | [Brute Force](design-and-analysis-of-algorithms-in-c/main/blob/StringMatching/bruteForce.c)     |                                                |                  |
+|     |                      | [Horspool Algorithm](./StringMatching/horsepool.c)         |                                                |                  |
 
 
