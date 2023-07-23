@@ -1,9 +1,9 @@
 # Design and Analysis of Algorithms (DAA) in C
 
-| test |        table         | asdf     | 
-|:---:|:--------:|:---------------------:|
-||[Euclid's algorithm](GCD/euclidsAlgorithm.c)||
-||[Consecutive Integer](GCD/consecutiveInteger.c)||
+| No. |        Title         | Algorithms                                               |                Time Complexity                 | Space Complexity |
+|:---:|:--------------------:|:---------------------------------------------------------|:----------------------------------------------:|:----------------:|
+||[Euclid's algorithm](GCD/euclidsAlgorithm.c)||||
+||[Consecutive Integer](GCD/consecutiveInteger.c)||||
 
 ## List of programs
 
