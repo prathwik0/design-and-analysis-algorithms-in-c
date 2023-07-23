@@ -2,14 +2,14 @@
 
 | No. |        Title         | Algorithms                                               |                Time Complexity                 | Space Complexity |
 |:---:|:--------------------:|:---------------------------------------------------------|:----------------------------------------------:|:----------------:|
-||[Euclid's algorithm](GCD/euclidsAlgorithm.c)||$$|$$|
+||[Euclid's algorithm](GCD/euclidsAlgorithm.c)||$asdf$|$asdf$|
 ||[Consecutive Integer](GCD/consecutiveInteger.c)||||
 
 ## List of programs
 
 | No. |        Title         | Algorithms                                               |                Time Complexity                 | Space Complexity |
 |:---:|:--------------------:|:---------------------------------------------------------|:----------------------------------------------:|:----------------:|
-|  1  |         GCD          | [Euclid's algorithm](GCD/euclidsAlgorithm.c)             |             O(log(\min(a,b)))          |      O(1)      |
+|  1  |         GCD          | [Euclid's algorithm](GCD/euclidsAlgorithm.c)             |            $ O(log(\min(a,b))) $        |      O(1)      |
 
 | No. |        Title         | Algorithms                                               |                Time Complexity                 | Space Complexity |
 |:---:|:--------------------:|:---------------------------------------------------------|:----------------------------------------------:|:----------------:|
